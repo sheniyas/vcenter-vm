@@ -1,0 +1,28 @@
+- name: Example of how to provision VMs (all in one data structure)
+  hosts: all
+  connection: local
+  gather_facts: no
+  vars:
+    # List of VMs to provision
+    vmware_vm_provisioning_vms:
+      # Fist VM
+      - name: test01
+        hostname: 10.10.11.112
+        username: administrator@ucmcswg.com
+        password: P@ssw0rd
+        validate_certs: no
+        datacenter: datacenter
+        cluster: cluster01
+        folder: /SHENIYAS/
+        template: RHEL-8-3-min-tmpl
+        disks:
+          - size_gb: 20
+            autoselect_datastore: yes
+        network:
+          - name: VM Network
+            ip: 10.10.11.162
+            netmask: 255.255.255.0
+            gateway: 10.10.11.1
+        hadrware:
+          num_cpus: 2
+          memory_mb: 4096
