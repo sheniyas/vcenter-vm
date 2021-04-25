@@ -7,7 +7,7 @@
     vmware_guest:
       hostname: 10.10.11.112
       username: administrator@ucmcswg.com
-      password: vmware
+      password: P@ssw0rd
       validate_certs: False
       name: testvm_2
       template: RHEL-8-3-min-tmpl
