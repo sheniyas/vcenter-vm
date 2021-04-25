@@ -1,9 +1,15 @@
-- vsphere_guest:
+  hosts: all
+  connection: local
+  gather_facts: no
+  vars:
+    # List of VMs to provision
+    vmware_vm_provisioning_vms:
+      # Fist VM
+      - name: test01
     vcenter_hostname: 10.10.11.112
     username: administrator@ucmcswg.com
     password: P@ssw0rd
     validate_certs: no
-    guest: newvm001
     from_template: yes
     template_src: RHEL-8-3-min-tmpl
     cluster: cluster01
