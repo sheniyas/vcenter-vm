@@ -1,6 +1,6 @@
 - vsphere_guest:
     vcenter_hostname: 10.10.11.112
-    username: administrator@vsphere.local
+    username: administrator@ucmcswg.com
     password: P@ssw0rd
     guest: newvm001
     from_template: yes
