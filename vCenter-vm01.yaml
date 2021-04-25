@@ -12,6 +12,6 @@
       name: testvm_2
       template: RHEL-8-3-min-tmpl
       datacenter: datacenter
-      folder: /SHENIYAS/vm
+      folder: /SHENIYAS/
       state: poweredon
       wait_for_ip_address: no
