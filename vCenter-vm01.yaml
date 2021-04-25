@@ -1,19 +1,17 @@
-  hosts: all
+- name: Create a VM from a template
+  hosts: localhost
   connection: local
   gather_facts: no
-  vars:
-    # List of VMs to provision
-    vmware_vm_provisioning_vms:
-      # Fist VM
-      - name: test01
-    vcenter_hostname: 10.10.11.112
-    username: administrator@ucmcswg.com
-    password: P@ssw0rd
-    validate_certs: no
-    from_template: yes
-    template_src: RHEL-8-3-min-tmpl
-    cluster: cluster01
-    resource_pool: "/Resources"
-    vm_extra_config:
-      folder: SHENIYAS
-  delegate_to: localhost
+  tasks:
+  - name: Clone the template
+    vmware_guest:
+      hostname: 10.10.11.112
+      username: administrator@ucmcswg.com
+      password: vmware
+      validate_certs: False
+      name: testvm_2
+      template: RHEL-8-3-min-tmpl
+      datacenter: datacenter
+      folder: /SHENIYAS/vm
+      state: poweredon
+      wait_for_ip_address: no
